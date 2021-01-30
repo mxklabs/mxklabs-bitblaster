@@ -4,31 +4,31 @@ This folder contains [MLIR](https://mlir.llvm.org/)-based tooling for processing
 
 ## Requirements
 
-**Compiler & Linker** 
+**Compiler & Linker**
 
 You need a C++ build tools, such as a compiler and a linker.
 
 :information_source: | On Ubuntu, install these with, e.g., `sudo apt-get install clang lld build-essentials`. 
-:---: | :---|      |
+:---: | :---
 
 **CMake**
 
 This project uses the [CMake](https://cmake.org/) build automation tool.
 
-:information_source: | The easiest way to install CMake is inside a [Python](https://www.python.org/) 3 [virtual environment](https://docs.python.org/3/tutorial/venv.html) using `pip install cmake`. 
-:---: | :---|      |
+:information_source: | The easiest way to install CMake is inside a [Python](https://www.python.org/) 3 [virtual environment](https://docs.python.org/3/tutorial/venv.html) using `pip install cmake`.
+:---: | :---
 
 **Ninja**
 
-:information_source: | The easiest way to install Ninja is inside a [Python](https://www.python.org/) 3 [virtual environment](https://docs.python.org/3/tutorial/venv.html) using `pip install ninja`. 
-:---: | :---|      |
+:information_source: | The easiest way to install Ninja is inside a [Python](https://www.python.org/) 3 [virtual environment](https://docs.python.org/3/tutorial/venv.html) using `pip install ninja`.
+:---: | :---
 
 **LLVM Library**
 
-You need the [llvm-project](https://mlir.llvm.org/) library to be available on your system. 
+You need the [llvm-project](https://mlir.llvm.org/) library to be available on your system.
 
-:information_source: Please find build instructions [here](https://mlir.llvm.org/getting_started/), but ensure you use the additional option `-DLLVM_INSTALL_UTILS=ON` when calling `cmake` to make `FileCheck` available. After building, you can install the library with `sudo cmake --install .`.[^1]| 
-:---: | :---|      |
+:information_source: Please find build instructions [here](https://mlir.llvm.org/getting_started/), but ensure you use the additional option `-DLLVM_INSTALL_UTILS=ON` when calling `cmake` to make `FileCheck` available. After building, you can install the library with `sudo cmake --install .`.[^1]
+:---: | :---
 
 ## Building
 
