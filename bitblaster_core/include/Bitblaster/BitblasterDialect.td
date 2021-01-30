@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef STANDALONE_DIALECT
-#define STANDALONE_DIALECT
+#ifndef BITBLASTER_DIALECT
+#define BITBLASTER_DIALECT
 
 include "mlir/IR/OpBase.td"
 
@@ -33,4 +33,4 @@ def Bitblaster_Dialect : Dialect {
 class Bitblaster_Op<string mnemonic, list<OpTrait> traits = []> :
         Op<Bitblaster_Dialect, mnemonic, traits>;
 
-#endif // STANDALONE_DIALECT
+#endif // BITBLASTER_DIALECT

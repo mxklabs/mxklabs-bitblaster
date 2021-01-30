@@ -6,11 +6,11 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef STANDALONE_STANDALONEDIALECT_H
-#define STANDALONE_STANDALONEDIALECT_H
+#ifndef BITBLASTER_BITBLASTERDIALECT_H
+#define BITBLASTER_BITBLASTERDIALECT_H
 
 #include "mlir/IR/Dialect.h"
 
 #include "Bitblaster/BitblasterOpsDialect.h.inc"
 
-#endif // STANDALONE_STANDALONEDIALECT_H
+#endif // BITBLASTER_BITBLASTERDIALECT_H

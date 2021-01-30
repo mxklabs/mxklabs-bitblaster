@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef STANDALONE_STANDALONEOPS_H
-#define STANDALONE_STANDALONEOPS_H
+#ifndef BITBLASTER_BITBLASTEROPS_H
+#define BITBLASTER_BITBLASTEROPS_H
 
 #include "mlir/IR/BuiltinTypes.h"
 #include "mlir/IR/Dialect.h"
@@ -17,4 +17,4 @@
 #define GET_OP_CLASSES
 #include "Bitblaster/BitblasterOps.h.inc"
 
-#endif // STANDALONE_STANDALONEOPS_H
+#endif // BITBLASTER_BITBLASTEROPS_H

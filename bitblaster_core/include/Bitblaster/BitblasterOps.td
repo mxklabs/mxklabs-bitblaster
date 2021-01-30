@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef STANDALONE_OPS
-#define STANDALONE_OPS
+#ifndef BITBLASTER_OPS
+#define BITBLASTER_OPS
 
 include "BitblasterDialect.td"
 include "mlir/Interfaces/SideEffectInterfaces.td"
@@ -39,4 +39,4 @@ def Bitblaster_FooOp : Bitblaster_Op<"foo", [NoSideEffect,
     }];
 }
 
-#endif // STANDALONE_OPS
+#endif // BITBLASTER_OPS
