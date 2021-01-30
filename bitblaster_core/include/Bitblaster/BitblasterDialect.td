@@ -17,11 +17,10 @@ include "mlir/IR/OpBase.td"
 
 def Bitblaster_Dialect : Dialect {
     let name = "bitblaster";
-    let summary = "A bitblaster out-of-tree MLIR dialect.";
+    let summary = "An out-of-tree MLIR dialect for propositional logic.";
     let description = [{
-        This dialect is an example of an out-of-tree MLIR dialect designed to
-        illustrate the basic setup required to develop MLIR-based tools without
-        working inside of the LLVM source tree.
+        This is an out-of-tree MLIR dialect to express operations that can be
+        mapped to propositional logic formulae.
     }];
     let cppNamespace = "::mlir::bitblaster";
 }
