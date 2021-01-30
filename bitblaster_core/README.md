@@ -50,7 +50,7 @@ This setup assumes that you have built LLVM and MLIR in `$BUILD_DIR` and install
 ```sh
 mkdir build && cd build
 cmake -G Ninja ..
-cmake --build . --target check-standalone
+cmake --build . --target check-bitblaster
 ```
 To build the documentation from the TableGen description of the dialect operations, run
 ```sh
