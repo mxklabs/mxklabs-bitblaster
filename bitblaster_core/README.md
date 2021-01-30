@@ -1,6 +1,21 @@
-# An out-of-tree MLIR dialect
+# Bitblaster Core
 
-This is an example of an out-of-tree [MLIR](https://mlir.llvm.org/) dialect along with a standalone `opt`-like tool to operate on that dialect.
+This folder contains [MLIR](https://mlir.llvm.org/)-based tooling for processing logic expressions.
+
+## Requirements
+
+* You need a C++ build tools, such as a compiler and a linker.
+
+* You need [CMake](https://cmake.org/), [Ninja](https://ninja-build.org/).
+
+  :information_source: | The easiest way to install these is inside a [Python](https://www.python.org/) 3 [virtual environment](https://docs.python.org/3/tutorial/venv.html) using [pip](https://pypi.org/project/pip/.
+  ) 
+
+  :---: | :---|      |
+
+  You need the [llvm-project](https://mlir.llvm.org/) library to be available on your system. 
+
+  Please find build instructions [here](https://mlir.llvm.org/getting_started/), but ensure you use the additional option `-DLLVM_INSTALL_UTILS=ON` when calling `cmake` to make `FileCheck` available. After building, you can install the library with `sudo cmake --install .`.[^1]
 
 ## Building
 
@@ -16,3 +31,5 @@ cmake --build . --target mlir-doc
 ```
 **Note**: Make sure to pass `-DLLVM_INSTALL_UTILS=ON` when building LLVM with CMake in order to install `FileCheck` to the chosen installation prefix.
 
+
+[^1]: You can install it in a local directory and pass `-DMLIR_DIR=$PREFIX/lib/cmake/mlir` to `bitblaster_core`'s cmake line.
