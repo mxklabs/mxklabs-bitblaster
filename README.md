@@ -1,6 +1,10 @@
 mxklabs-bitblaster
 ==================
 
+:warning: | This library is *under development* and is not ready for general use.
+:---: | :---
+
+
 Installation
 ------------
 
