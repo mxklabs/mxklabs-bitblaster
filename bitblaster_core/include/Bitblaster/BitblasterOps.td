@@ -10,7 +10,12 @@
 #define BITBLASTER_OPS
 
 include "BitblasterDialect.td"
+//include "mlir/IR/OpBase.td"
 include "mlir/Interfaces/SideEffectInterfaces.td"
+
+// Wrapper around C++ OpTrait.
+class AtLeastNOperands<int N>
+  : ParamNativeOpTrait<"AtLeastNOperands", !cast<string>(N)>;
 
 def Bitblaster_FooOp : Bitblaster_Op<"foo", [NoSideEffect,
                                              SameOperandsAndResultType]> {
@@ -40,7 +45,10 @@ def Bitblaster_FooOp : Bitblaster_Op<"foo", [NoSideEffect,
 }
 
 
-def Bitblaster_LogicalAnd : Bitblaster_Op<"logical_and", [NoSideEffect, SameOperandsAndResultType]> {
+def Bitblaster_LogicalAnd : Bitblaster_Op<"logical_and", [
+        NoSideEffect,
+        SameOperandsAndResultType,
+        AtLeastNOperands<2>]> {
 
     let summary = "Logical conjunction of two or more bits.";
     let description = [{
@@ -68,7 +76,10 @@ def Bitblaster_LogicalAnd : Bitblaster_Op<"logical_and", [NoSideEffect, SameOper
     }];
 }
 
-def Bitblaster_LogicalOr : Bitblaster_Op<"logical_or", [NoSideEffect, SameOperandsAndResultType]> {
+def Bitblaster_LogicalOr : Bitblaster_Op<"logical_or", [
+        NoSideEffect,
+        SameOperandsAndResultType,
+        AtLeastNOperands<2>]> {
 
     let summary = "Logical disjunction of two or more bits.";
     let description = [{

@@ -1,4 +1,6 @@
 bitblaster_core/build/
+CMakeCache.txt
+CMakeFiles/
 
 # Using https://github.com/github/gitignore/blob/master/Python.gitignore
 
