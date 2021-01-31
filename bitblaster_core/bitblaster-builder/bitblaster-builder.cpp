@@ -44,9 +44,27 @@ int main(int argc, char **argv) {
   registry.insert<mlir::bitblaster::BitblasterDialect>();
   registry.insert<mlir::StandardOpsDialect>();
 
+  
+
   // TODO: Register bitblaster translations here.
-  mlir::MLIRContext ctx;
+  mlir::MLIRContext ctx(registry);
+
+  auto &registry = ctx.getDialectRegistry();
+  registry.insert<mlir::bitblaster::BitblasterDialect>();
+  registry.insert<mlir::StandardOpsDialect>();
+
+  std::cout << "----" << std::endl;
+  for (auto op : ctx.getLoadedDialects()) {
+    std::cout << op->getNamespace().str() << std::endl;
+  }
+  std::cout << "----" << std::endl;
+  for (auto op : ctx.getRegisteredOperations()) {
+    std::cout << op->name.c_str() << std::endl;
+  }
+  std::cout << "----" << std::endl;
+
   mlir::OpBuilder builder(&ctx);
+  mlir::ModuleOp module = mlir::ModuleOp::create(builder.getUnknownLoc());
 
   //builder.create<BitblasterLogicalAnd>();
   auto file0 = mlir::Identifier::get("buildblaster-builder.cpp", &ctx);
@@ -56,18 +74,21 @@ int main(int argc, char **argv) {
     loc0,
     builder.getI1Type(),
     builder.getIntegerAttr(builder.getI1Type(), 0));
+  module.push_back(op0);
 
   auto op1 = builder.create<mlir::ConstantOp>(
     loc0,
     builder.getI1Type(),
     builder.getIntegerAttr(builder.getI1Type(), 1));
+  module.push_back(op1);
 
   auto op2 = builder.create<mlir::bitblaster::LogicalAnd>(
     loc0,
     // builder.getI1Type(),
     mlir::ValueRange({op0, op1}));
+  module.push_back(op2);
 
-  std::cout << builder.getBlock() << std::endl;
+  module->dump();
 
   return 0;
   //return failed(
