@@ -15,12 +15,15 @@ except ImportError:
     raise
 
 setup(
-    name="scikit_build_example",
-    version="0.0.1",
-    description="a minimal example package (with pybind11)",
-    author="Henry Schreiner",
+    name="bitblaster",
+    version="0.0.6",
+    description="A library for expressing and solving things in propositional logic.",
+    author="Mark Kattenbelt",
+    author_email="mark@mxklabs.co.uk",
+    url="https://github.com/mxklabs/mxklabs-bitblaster",
     license="MIT",
-    packages=["scikit_build_example"],
+    packages=["bitblaster"],
     package_dir={"": "src"},
     cmake_install_dir="src/scikit_build_example",
+    author_email="mark@mxklabs.co.uk"
 )
