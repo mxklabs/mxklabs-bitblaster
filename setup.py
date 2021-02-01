@@ -24,6 +24,6 @@ setup(
     license="MIT",
     packages=["bitblaster"],
     package_dir={"": "src"},
-    cmake_install_dir="src/scikit_build_example",
-    author_email="mark@mxklabs.co.uk"
+    cmake_install_dir="src/bitblaster",
+    python_requires='>=3.6'
 )

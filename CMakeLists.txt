@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15...3.18)
 
-project(scikit_build_example VERSION "0.0.1")
+project(bitblaster VERSION "0.0.6")
 
 # Currently, Scikit-build does not support FindPython, so we convert the
 # provided hints ourselves.
