@@ -1,5 +1,5 @@
 package:
-  name: python_example
+  name: scikit_build_example
   version: 0.0.1
 
 source:
@@ -17,6 +17,9 @@ requirements:
     - python
     - pip
     - pybind11 >=2.6.0
+    - scikit-build
+    - cmake >=3.18
+    - ninja
 
   run:
     - python
@@ -24,12 +27,12 @@ requirements:
 
 test:
   imports:
-    - python_example
+    - scikit_build_example
   source_files:
     - tests
   commands:
     - python tests/test.py
 
 about:
-  summary: An example project built with pybind11.
+  summary: An example project built with pybind11 and scikit-build.
   license_file: LICENSE

@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [ubuntu-latest, windows-latest, macos-latest]
+        platform: [ubuntu-latest, windows-2016, macos-latest]
         python-version: ["3.6", "3.8"]
 
     runs-on: ${{ matrix.platform }}
@@ -38,7 +38,7 @@ jobs:
         run: conda build conda.recipe
 
       - name: Install
-        run: conda install -c ${CONDA_PREFIX}/conda-bld/ python_example
+        run: conda install -c ${CONDA_PREFIX}/conda-bld/ scikit_build_example
 
       - name: Test
         run: python tests/test.py
