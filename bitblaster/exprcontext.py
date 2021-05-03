@@ -12,7 +12,7 @@ from .objpool import ObjPool
 from .valtype_ import Valtype
 from .valtypedef import ValtypeDef
 
-logger = logging.getLogger(f'mxklabs.expr.ExprContext')
+logger = logging.getLogger(f'bitblaster.ExprContext')
 
 class ExprContext:
 
@@ -28,7 +28,7 @@ class ExprContext:
 
     def solve():
       cnfctx = ExprContext(load_defaults=False)
-      cnfctx.load_expr_def_set('mxklabs.expr.exprdefset.cnf')
+      cnfctx.load_expr_def_set('bitblaster.exprdefset.cnf')
       solver = CnfSolver(self, cnfctx)
       return solver.solve()
 
@@ -44,11 +44,11 @@ class ExprContext:
     self._add('util', 'decompose', lambda expr: self._walker.decompose(expr))
 
     if load_defaults:
-      self.load_valtype('mxklabs.expr.valtype.bool')
-      self.load_valtype('mxklabs.expr.valtype.bitvector')
-      self.load_expr_def_set('mxklabs.expr.exprdefset.logical')
-      self.load_expr_def_set('mxklabs.expr.exprdefset.bitvector')
-      self.load_expr_def_set('mxklabs.expr.exprdefset.util')
+      self.load_valtype('bitblaster.valtype.bool')
+      self.load_valtype('bitblaster.valtype.bitvector')
+      self.load_expr_def_set('bitblaster.exprdefset.logical')
+      self.load_expr_def_set('bitblaster.exprdefset.bitvector')
+      self.load_expr_def_set('bitblaster.exprdefset.util')
 
   def __getattr__(self, name):
     if name in self._namespaces:
@@ -210,7 +210,7 @@ class ExprContext:
     # Check expression.
     self._check_expr("constraint", expr)
     # Check we have booleans loaded.
-    if 'mxklabs.expr.valtype.bool' not in self._valtype_defs:
+    if 'bitblaster.valtype.bool' not in self._valtype_defs:
       raise RuntimeError("constraint expressions must be of valtype 'bool', but this valtype is not loaded in this context")
     # Check the expression is bool
     if not self.valtype.is_bool(expr.valtype()):
@@ -237,7 +237,7 @@ class ExprContext:
   def _check_expr(self, descr, expr):
     # Check if an expression is sane.
     if not isinstance(expr, Expr):
-      raise RuntimeError(f"{descr} ('{expr}') is not a mxklabs.expr.Expr object")
+      raise RuntimeError(f"{descr} ('{expr}') is not a bitblaster.Expr object")
     if expr.ctx() != self:
       raise RuntimeError(f"{descr} ('{expr}') was created in a different context")
     if not self._expr_pool.contains(expr):
@@ -246,7 +246,7 @@ class ExprContext:
   def _check_valtype(self, descr, valtype):
     # Check if a valtype is sane.
     if not isinstance(valtype, Valtype):
-      raise RuntimeError(f"{descr} ('{valtype}') is not a mxklabs.expr.Valtype object")
+      raise RuntimeError(f"{descr} ('{valtype}') is not a bitblaster.Valtype object")
     if valtype.ctx() != self:
       raise RuntimeError(f"{descr} ('{valtype}') was created in a different context")
     if not self._valtype_pool.contains(valtype):

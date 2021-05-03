@@ -1,11 +1,11 @@
-import mxklabs.expr
+import bitblaster
 import pytest
 
 from exprtester import ExprTester
 
 def test_load():
-  ctx = mxklabs.expr.ExprContext(load_defaults=False)
-  ctx.load_valtype('mxklabs.expr.valtype.bitvector')
+  ctx = bitblaster.ExprContext(load_defaults=False)
+  ctx.load_valtype('bitblaster.valtype.bitvector')
 
   # Test we can create a bitvector valtype.
   bv1 = ctx.valtype.bitvector(width=10)
@@ -21,9 +21,9 @@ def test_load():
   assert(not (bv1 != bv1))
 
   # Test calling with non-Valtype objects results in exception.
-  with pytest.raises(RuntimeError, match=r"'is_bitvector' argument \('1'\) is not a mxklabs.expr.Valtype object"):
+  with pytest.raises(RuntimeError, match=r"'is_bitvector' argument \('1'\) is not a bitblaster.Valtype object"):
     assert(not ctx.valtype.is_bitvector(1))
-  with pytest.raises(RuntimeError, match=r"'is_bitvector' argument \('False'\) is not a mxklabs.expr.Valtype object"):
+  with pytest.raises(RuntimeError, match=r"'is_bitvector' argument \('False'\) is not a bitblaster.Valtype object"):
     assert(not ctx.valtype.is_bitvector(False))
 
   # Test if we create another bitvector of the same width it's the same object.
@@ -39,7 +39,7 @@ def test_load():
   assert("bitvector(width=10)" == repr(bv1))
 
   # Test a boolean isn't mistaken for a bitvector and vice versa.
-  ctx.load_valtype('mxklabs.expr.valtype.bool')
+  ctx.load_valtype('bitblaster.valtype.bool')
   assert(not ctx.valtype.is_bool(bv1))
   bool1 = ctx.valtype.bool()
   assert(not ctx.valtype.is_bitvector(bool1))
@@ -53,7 +53,7 @@ def test_load():
   assert(list(bv4.values()) == [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
 
 def test_bitvector_from_bool():
-  ctx = mxklabs.expr.ExprContext()#
+  ctx = bitblaster.ExprContext()#
 
   def bool_to_int(boolval):
     return 1 if boolval else 0
@@ -65,7 +65,7 @@ def test_bitvector_from_bool():
   ExprTester(ctx, ctx.expr.bitvector_from_bool, inputs, attrs, output)
 
 def test_bitvector_mult():
-  ctx = mxklabs.expr.ExprContext()#
+  ctx = bitblaster.ExprContext()#
 
   # Test with two 3-bit bitvectors
   inputs = [ctx.valtype.bitvector(width=3), ctx.valtype.bitvector(width=3)]

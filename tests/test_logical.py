@@ -1,9 +1,9 @@
-import mxklabs.expr
+import bitblaster
 
 from exprtester import ExprTester
 
 def test_logical_and():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
 
   # Test with one input.
   inputs = [ctx.valtype.bool()]
@@ -21,7 +21,7 @@ def test_logical_and():
   ExprTester(ctx, ctx.expr.logical_and, inputs, {}, output)
 
 def test_logical_implies():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
 
   # Test with two inputs.
   inputs = [ctx.valtype.bool(),ctx.valtype.bool()]
@@ -29,7 +29,7 @@ def test_logical_implies():
   ExprTester(ctx, ctx.expr.logical_implies, inputs, {}, output)
 
 def test_logical_nand():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
 
   # Test with one input.
   inputs = [ctx.valtype.bool()]
@@ -47,7 +47,7 @@ def test_logical_nand():
   ExprTester(ctx, ctx.expr.logical_nand, inputs, {}, output)
 
 def test_logical_nor():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
 
   # Test with one input.
   inputs = [ctx.valtype.bool()]
@@ -65,7 +65,7 @@ def test_logical_nor():
   ExprTester(ctx, ctx.expr.logical_nor, inputs, {}, output)
 
 def test_logical_not():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
 
   # Test with one input.
   inputs = [ctx.valtype.bool()]
@@ -73,7 +73,7 @@ def test_logical_not():
   ExprTester(ctx, ctx.expr.logical_not, inputs, {}, output)
 
 def test_logical_or():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
 
   # Test with one input.
   inputs = [ctx.valtype.bool()]
@@ -91,7 +91,7 @@ def test_logical_or():
   ExprTester(ctx, ctx.expr.logical_or, inputs, {}, output)
 
 def test_logical_xnor():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
 
   # Test with two inputs.
   inputs = [ctx.valtype.bool(),ctx.valtype.bool()]
@@ -99,7 +99,7 @@ def test_logical_xnor():
   ExprTester(ctx, ctx.expr.logical_xnor, inputs, {}, output)
 
 def test_logical_xor():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
 
   # Test with two inputs.
   inputs = [ctx.valtype.bool(),ctx.valtype.bool()]

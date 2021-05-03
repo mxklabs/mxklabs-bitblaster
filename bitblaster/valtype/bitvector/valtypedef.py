@@ -4,7 +4,7 @@ from ...exprutils import ExprUtils
 class BitvectorValtypeDef(ValtypeDef):
 
   def __init__(self, ctx):
-    ValtypeDef.__init__(self, ctx, baseid='bitvector', package='mxklabs.expr.valtype')
+    ValtypeDef.__init__(self, ctx, baseid='bitvector', package='bitblaster.valtype')
 
   def validate(self, sub_valtypes, attrs):
     # One attribute: width.

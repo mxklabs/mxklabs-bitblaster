@@ -1,10 +1,10 @@
-import mxklabs.expr
+import bitblaster
 import pytest
 
 from exprtester import ExprTester
 
 def test_util_index():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
 
   # Test with a bitvector.
   inputs = [ctx.valtype.bitvector(width=4)]
@@ -13,7 +13,7 @@ def test_util_index():
   ExprTester(ctx, ctx.expr.util_index, inputs, attrs, output)
 
 def test_util_equal():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
 
   # Test with a bitvector.
   inputs = [ctx.valtype.bitvector(width=2), ctx.valtype.bitvector(width=2)]

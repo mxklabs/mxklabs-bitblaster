@@ -11,7 +11,7 @@ from .logical_xnor import LogicalXnor
 class LogicalExprDefSet(ExprDefSet):
 
   def __init__(self, ctx):
-    ExprDefSet.__init__(self, ctx, baseid='logical', package='mxklabs.expr.exprdefset')
+    ExprDefSet.__init__(self, ctx, baseid='logical', package='bitblaster.exprdefset')
     self._expr_defs = [
       LogicalAnd(ctx=ctx, expr_def_set=self),
       LogicalImplies(ctx=ctx, expr_def_set=self),
@@ -27,10 +27,10 @@ class LogicalExprDefSet(ExprDefSet):
     return self._expr_defs
 
   def valtype_ids(self):
-    return ["mxklabs.expr.valtype.bool"]
+    return ["bitblaster.valtype.bool"]
 
   def expr_def_set_ids(self):
-    return ["mxklabs.expr.exprdefset.util"]
+    return ["bitblaster.exprdefset.util"]
 
   def targets(self):
     return []

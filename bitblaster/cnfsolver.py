@@ -7,7 +7,7 @@ from pysat.solvers import Glucose3
 from .expr import OpExpr
 from .exprutils import ExprUtils
 
-logger = logging.getLogger(f'mxklabs.expr.CnfSolver')
+logger = logging.getLogger(f'bitblaster.CnfSolver')
 
 class CnfDecomposer:
 

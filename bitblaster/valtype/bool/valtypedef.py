@@ -4,7 +4,7 @@ from ...exprutils import ExprUtils
 class BoolValtypeDef(ValtypeDef):
 
   def __init__(self, ctx):
-    ValtypeDef.__init__(self, ctx, baseid='bool', package='mxklabs.expr.valtype')
+    ValtypeDef.__init__(self, ctx, baseid='bool', package='bitblaster.valtype')
 
   def validate(self, sub_valtypes, attrs):
     # Check sub_valtypes.

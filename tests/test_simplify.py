@@ -1,8 +1,8 @@
-import mxklabs.expr
+import bitblaster
 import pytest
 
 def test_logical_and():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
 
   v1 = ctx.variable(name='v1', valtype=ctx.valtype.bool())
   v2 = ctx.variable(name='v2', valtype=ctx.valtype.bool())
@@ -34,7 +34,7 @@ def test_logical_and():
   assert(ctx.util.simplify(expr) == false)
 
 def test_logical_not():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
 
   v1 = ctx.variable(name='v1', valtype=ctx.valtype.bool())
   true = ctx.constant(value=1, valtype=ctx.valtype.bool())
@@ -57,7 +57,7 @@ def test_logical_not():
   assert(ctx.util.simplify(expr) == v1)
 
 def test_logical_or():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
 
   v1 = ctx.variable(name='v1', valtype=ctx.valtype.bool())
   v2 = ctx.variable(name='v2', valtype=ctx.valtype.bool())
@@ -89,7 +89,7 @@ def test_logical_or():
   assert(ctx.util.simplify(expr) == true)
 
 def test_logical_xor():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
 
   v1 = ctx.variable(name='v1', valtype=ctx.valtype.bool())
   v2 = ctx.variable(name='v2', valtype=ctx.valtype.bool())

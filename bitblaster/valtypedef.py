@@ -9,7 +9,7 @@ class ValtypeDef:
 
   def id(self):
     """
-    Return the fully qualified id, e.g. 'mxklabs.expr.valtypedef.bool'.
+    Return the fully qualified id, e.g. 'bitblaster.valtypedef.bool'.
     """
     return self._id
 

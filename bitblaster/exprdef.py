@@ -12,7 +12,7 @@ class ExprDef:
 
   def id(self):
     """
-    Return the fully qualified id, e.g. 'mxklabs.expr.logical_and'.
+    Return the fully qualified id, e.g. 'bitblaster.logical_and'.
     """
     return self._id
 

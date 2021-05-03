@@ -52,7 +52,7 @@ class ExprUtils:
     # Check sub_valtypes are actually valtype objects.
     for index, sub_valtype in zip(range(len(sub_valtypes)), sub_valtypes):
       if not isinstance(op, Valtype):
-        raise RuntimeError(f"'{valtype_id}' expects sub_valtypes of valtype mxklabs.expr.Valtype (sub_valtypes {index} has valtype {type(sub_valtype)})")
+        raise RuntimeError(f"'{valtype_id}' expects sub_valtypes of valtype bitblaster.Valtype (sub_valtypes {index} has valtype {type(sub_valtype)})")
 
     # Check sub_valtypes match.
     if exp_sub_valtype is not None:

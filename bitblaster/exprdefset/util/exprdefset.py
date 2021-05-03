@@ -5,7 +5,7 @@ from .util_equal import UtilEqual
 class UtilExprDefSet(ExprDefSet):
 
   def __init__(self, ctx):
-    ExprDefSet.__init__(self, ctx, baseid='util', package='mxklabs.expr.exprdefset')
+    ExprDefSet.__init__(self, ctx, baseid='util', package='bitblaster.exprdefset')
     self._expr_defs = [
       UtilIndex(ctx=ctx, expr_def_set=self),
       UtilEqual(ctx=ctx, expr_def_set=self)
@@ -15,12 +15,12 @@ class UtilExprDefSet(ExprDefSet):
     return self._expr_defs
 
   def valtype_ids(self):
-    return ["mxklabs.expr.valtype.bool",
-            "mxklabs.expr.valtype.bitvector"]
+    return ["bitblaster.valtype.bool",
+            "bitblaster.valtype.bitvector"]
 
   def expr_def_set_ids(self):
-    return ["mxklabs.expr.exprdefset.logical",
-            "mxklabs.expr.exprdefset.bitvector"]
+    return ["bitblaster.exprdefset.logical",
+            "bitblaster.exprdefset.bitvector"]
 
   def targets(self):
     return []

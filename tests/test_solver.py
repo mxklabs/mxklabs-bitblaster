@@ -1,9 +1,9 @@
-import mxklabs.expr
+import bitblaster
 import pytest
 
 def test_solver_cnf():
-  ctx = mxklabs.expr.ExprContext(load_defaults=False)
-  ctx.load_expr_def_set('mxklabs.expr.exprdefset.logical')
+  ctx = bitblaster.ExprContext(load_defaults=False)
+  ctx.load_expr_def_set('bitblaster.exprdefset.logical')
 
   a = ctx.variable(name="a", valtype=ctx.valtype.bool())
 
@@ -19,8 +19,8 @@ def test_solver_cnf():
 
 
 def test_sat2():
-  ctx = mxklabs.expr.ExprContext(load_defaults=False)
-  ctx.load_expr_def_set('mxklabs.expr.exprdefset.logical')#
+  ctx = bitblaster.ExprContext(load_defaults=False)
+  ctx.load_expr_def_set('bitblaster.exprdefset.logical')#
 
   a = ctx.variable(name="a", valtype=ctx.valtype.bool())
 
@@ -36,8 +36,8 @@ def test_sat2():
 
 
 def test_sat3():
-  ctx = mxklabs.expr.ExprContext(load_defaults=False)
-  ctx.load_expr_def_set('mxklabs.expr.exprdefset.logical')#
+  ctx = bitblaster.ExprContext(load_defaults=False)
+  ctx.load_expr_def_set('bitblaster.exprdefset.logical')#
 
   a = ctx.variable(name="a", valtype=ctx.valtype.bool())
 
@@ -49,8 +49,8 @@ def test_sat3():
 
 
 def test_sat4():
-  ctx = mxklabs.expr.ExprContext(load_defaults=False)
-  ctx.load_expr_def_set('mxklabs.expr.exprdefset.logical')#
+  ctx = bitblaster.ExprContext(load_defaults=False)
+  ctx.load_expr_def_set('bitblaster.exprdefset.logical')#
 
   a = ctx.variable(name="a", valtype=ctx.valtype.bool())
   b = ctx.variable(name="b", valtype=ctx.valtype.bool())
@@ -78,7 +78,7 @@ def test_sat4():
 """
 
 def test_unsat1():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
   a = ctx.bool.variable(name="a")
 
   ctx.add_constraint(ctx.bool.logical_and(a, ctx.bool.logical_not(a)))
@@ -88,7 +88,7 @@ def test_unsat1():
   assert(not result)
 
 def test_sat3():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
   true = ctx.bool.constant(value=1)
 
   ctx.add_constraint(true)
@@ -98,7 +98,7 @@ def test_sat3():
   assert(result)
 
 def test_unsat2():
-  ctx = mxklabs.expr.ExprContext()
+  ctx = bitblaster.ExprContext()
   true = ctx.bool.constant(value=0)
 
   ctx.add_constraint(true)

@@ -5,7 +5,7 @@ from .logical_or import LogicalOr
 class CnfExprDefSet(ExprDefSet):
 
   def __init__(self, ctx):
-    ExprDefSet.__init__(self, ctx, baseid='cnf', package='mxklabs.expr.exprdefset')
+    ExprDefSet.__init__(self, ctx, baseid='cnf', package='bitblaster.exprdefset')
     self._expr_defs = [
       LogicalNot(ctx=ctx, expr_def_set=self),
       LogicalOr(ctx=ctx, expr_def_set=self)
@@ -15,7 +15,7 @@ class CnfExprDefSet(ExprDefSet):
     return self._expr_defs
 
   def valtype_ids(self):
-    return ["mxklabs.expr.valtype.bool"]
+    return ["bitblaster.valtype.bool"]
 
   def expr_def_set_ids(self):
     return []
